@@ -1,0 +1,598 @@
+Control Flow: Control flow is the sequence in which your code is run.
+
+CONDITIONAL STATEMENT
+
+[ ]
+#IF Statement
+#An if statement is a conditional statement that runs or skips code based on whether a condition is true or false. 
+#simple example.
+if phone_balance < 5:
+    phone_balance += 10
+    bank_balance -= 10
+if: An if statement must always start with an if clause, which contains the first condition that is checked. If this evaluates to True, Python runs the code indented in this if block and then skips to the rest of the code after the if statement.
+
+elif: elif is short for "else if." An elif clause is used to check for an additional condition if the conditions in the previous clauses in the if statement evaluate to False. As you can see in the example, you can have multiple elif blocks to handle different situations.
+
+else: Last is the else clause, which must come at the end of an if statement if used. This clause doesn't require a condition. The code in an else block is run if all conditions above that in the if statement evaluate to False.
+
+[ ]
+#Example
+if season == 'spring':
+    print('plant the garden!')
+elif season == 'summer':
+    print('water the garden!')
+elif season == 'fall':
+    print('harvest the garden!')
+elif season == 'winter':
+    print('stay indoors!')
+else:
+    print('unrecognized season')
+
+#Set of Examples
+#First Example
+if phone_balance < 10:
+    phone_balance += 10
+    bank_balance -= 10
+
+print(phone_balance)
+print(bank_balance)
+
+#Second Example - try changing the value of number
+
+number = 145
+if number % 2 == 0:
+    print("Number " + str(number) + " is even.")
+else:
+    print("Number " + str(number) + " is odd.")
+
+#Third Example - try to change the value of age
+age = 35
+
+# Here are the age limits for bus fares
+free_up_to_age = 4
+child_up_to_age = 18
+senior_from_age = 65
+
+# These lines determine the bus fare prices
+concession_ticket = 1.25
+adult_ticket = 2.50
+
+# Here is the logic for bus fare prices
+if age <= free_up_to_age:
+    ticket_price = 0
+elif age <= child_up_to_age:
+    ticket_price = concession_ticket
+elif age >= senior_from_age:
+    ticket_price = concession_ticket
+else:
+    ticket_price = adult_ticket
+
+message = "Somebody who is {} years old will pay ${} to ride the bus.".format(age, ticket_price)
+print(message)
+
+#Exercise
+points = 174  # use this input to make your submission
+
+# write your if statement here
+if points <= 50:
+    result = "Congratulations! You won a wooden rabbit!"
+elif points <= 150:
+    result = "Oh dear, no prize this time."
+elif points <= 180:
+    result = "Congratulations! You won a wafer-thin mint!"
+elif points <= 200:
+    result = "Congratulations! You won a penguin!"
+print(result)
+
+#Another Exercise
+# '''
+# You decide you want to play a game where you are hiding 
+# a number from someone.  Store this number in a variable 
+# called 'answer'.  Another user provides a number called
+# 'guess'.  By comparing guess to answer, you inform the user
+# if their guess is too high or too low.
+
+# Fill in the conditionals below to inform the user about how
+# their guess compares to the answer.
+# '''
+answer = 5 #provide answer
+guess = 6 #provide guess
+
+if guess < answer: #provide conditional
+    result = "Oops!  Your guess was too low."
+elif guess > answer: #provide conditional
+    result = "Oops!  Your guess was too high."
+elif guess == answer: #provide conditional
+    result = "Nice!  Your guess matched the answer!"
+
+print(result)
+
+#Another Exercise
+# '''
+# Depending on where an individual is from we need to tax them 
+# appropriately.  The states of CA, MN, and 
+# NY have taxes of 7.5%, 9.5%, and 8.9% respectively.
+# Use this information to take the amount of a purchase and 
+# the corresponding state to assure that they are taxed by the right
+# amount.
+# '''
+state = 'CA' #Either CA, MN, or NY
+purchase_amount = 25000 #amount of purchase
+
+if state == 'CA': #provide conditional for checking state is CA
+    tax_amount = .075
+    total_cost = purchase_amount*(1+tax_amount)
+    result = "Since you're from {}, your total cost is {}.".format(state, total_cost)
+
+elif state == 'MN': #provide conditional for checking state is MN
+    tax_amount = .095
+    total_cost = purchase_amount*(1+tax_amount)
+    result = "Since you're from {}, your total cost is {}.".format(state, total_cost)
+
+elif state == 'NY': #provide conditional for checking state is NY
+    tax_amount = .089
+    total_cost = purchase_amount*(1+tax_amount)
+    result = "Since you're from {}, your total cost is {}.".format(state, total_cost)
+
+print(result)
+COomplex Boolean Statement
+
+[ ]
+if 18.5 <= weight / height**2 < 25:
+    print("BMI is considered 'normal'")
+
+if is_raining and is_sunny:
+    print("Is there a rainbow?")
+
+if (not unsubscribed) and (location == "USA" or location == "CAN"):
+    print("send email")
+Good and Bad Examples Here are some things to keep in mind while writing boolean expressions for your if statements.
+
+[ ]
+#1. Don't use True or False as conditions
+# Bad example
+if True:
+    print("This indented code will always get run.")
+
+# Another bad example
+if is_cold or not is_cold:
+    print("This indented code will always get run.")
+
+#2. Be careful writing expressions that use logical operators
+# Bad example
+if weather == "snow" or "rain":
+    print("Wear boots!")
+
+#3. Don't compare a boolean variable with == True or == False
+Python has two kinds of loops - for loops and while loops. A for loop is used to "iterate", or do something repeatedly, over an iterable.
+
+An iterable is an object that can return one of its elements at a time. This can include sequence types, such as strings, lists, and tuples, as well as non-sequence types, such as dictionaries and files.
+
+[ ]
+cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
+for city in cities:
+    print(city)
+print("Done!")
+Using the range() Function with for Loops: range() is a built-in function used to create an iterable sequence of numbers. You will frequently use range() with a for loop to repeat an action a certain number of times. Any variable can be used to iterate through the numbers, but Python programmers conventionally use i, as in this example:
+
+[ ]
+for i in range(3):
+    print("Hello!")
+
+
+# Creating a new list
+cities = ['new york city', 'mountain view', 'chicago', 'los angeles']
+capitalized_cities = []
+for city in cities:
+    capitalized_cities.append(city.title())
+
+#Modifying a list is a bit more involved, and requires the use of the range() function.
+cities = ['new york city', 'mountain view', 'chicago', 'los angeles'
+for index in range(len(cities)):
+    cities[index] = cities[index].title()
+
+#practice1
+sentence = ["the", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
+# Write a for loop to print out each word in the sentence list, one word per line
+for elements in sentence:
+    print (elements)
+
+#Practice2
+# Write a for loop using range() to print out multiples of 5 up to 30 inclusive
+for i in range(5,35,5):
+    print(i)
+
+
+#practice3
+#Write a for loop that iterates over the names list to create a usernames list. To create a username 
+#for each name, make everything lowercase and replace spaces with underscores. Running your for loop over the list:
+names = ["Joey Tribbiani", "Monica Geller", "Chandler Bing", "Phoebe Buffay"]
+usernames = []
+
+# write your for loop here
+for name in names:
+    usernames.append(name.lower().replace(' ', '_'))
+print(usernames)
+
+
+#practice4
+#Write a for loop that iterates over a list of strings, tokens, and counts how many of them are XML tags. XML is a data 
+#language similar to HTML. You can tell if a string is an XML tag if it begins with a left angle bracket "<" and ends with a 
+#right angle bracket ">". Keep track of the number of tags using the variable count.
+tokens = ['<greeting>', 'Hello World!', '</greeting>']
+count = 0
+# write your for loop here
+for token in tokens:
+    if token[0] == '<' and token[-1] == '>':
+        count += 1
+        
+print(count)
+
+
+# Quiz 4: Create an HTML List
+# Write some code, including a for loop, that iterates over a list of strings
+# and creates a single string, html_str, which is an HTML list. For example,
+# should output:
+# <ul>
+# <li>first string</li>
+# <li>second string</li>
+# </ul>
+
+items = ['first string', 'second string']
+html_str = "<ul>\n"  # "\ n" is the character that marks the end of the line,
+                     # it does the characters that are after it in html_str
+                     # are on the next line
+
+for item in items:
+    html_str = html_str + "<li>" + str(item) + "</li>" "\n"
+
+html_str = html_str + "</ul>"
+
+print(html_str)
+#OR
+items = ['first string', 'second string']
+html_str = "<ul>\n"          # The "\n" here is the end-of-line char, causing
+                             # chars after this in html_str to be on next line
+
+for item in items:
+    html_str += "<li>{}</li>\n".format(item)
+html_str += "</ul>"
+
+print(html_str)
+
+# Quiz 5: Lower
+# If you want to create a new list called lower_colors, where each color
+# in colors is lower cased, which code would do this?
+
+colors = ['Red', 'Blue', 'Green', 'Purple']
+lower_colors = []
+
+for color in colors:
+    lower_colors.append(color.lower())
+
+print(lower_colors)
+
+
+# Quizzes: Iterating Through Dictionaries
+
+# Quiz 1: Fruit Basket - Task 1
+"""
+You would like to count the number of fruits in your basket. In order to do
+this, you have the following dictionary and list of fruits. Use the dictionary
+and list to count the total number of fruits, but you do not want to count the
+other items in your basket.
+"""
+
+result = 0
+basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+#Iterate through the dictionary
+for key, value in basket_items.items():
+    for item in fruits:
+        #if the key is in the list of fruits, add the value (number of fruits)
+        #to result
+        if item == key:
+            result = result + value
+
+print(result)
+
+
+# Quiz: Fruit Basket - Task 2
+"""
+If your solution is robust, you should be able to use it with any dictionary of
+items to count the number of fruits in the basket. Try the loop for each of
+the dictionaries below to make sure it always works.
+"""
+
+#Example 1
+result = 0
+basket_items = {'pears': 5, 'grapes': 19, 'kites': 3, 'sandwiches': 8, 'bananas': 4}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+# Your previous solution here
+
+for key, value in basket_items.items():
+    for item in fruits:
+        
+        #if the key is in the list of fruits, add the value (number of fruits) 
+        #to result
+        if item == key:
+            result = result + value
+
+print(result)
+
+#Example 2
+result = 0
+basket_items = {'peaches': 5, 'lettuce': 2, 'kites': 3, 'sandwiches': 8, 'pears': 4}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+# Your previous solution here
+
+for key, value in basket_items.items():
+    for item in fruits:
+        
+        #if the key is in the list of fruits, add the value (number of fruits)
+        #to result
+        if item == key:
+            result = result + value
+
+print(result)
+
+#Example 3
+
+result = 0
+basket_items = {'lettuce': 2, 'kites': 3, 'sandwiches': 8, 'pears': 4, 'bears': 10}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+# Your previous solution here
+
+for key, value in basket_items.items():
+    for item in fruits:
+        #if the key is in the list of fruits, add the value (number of fruits)
+        #to result
+        if item == key:
+            result = result + value
+
+print("I count {} fruits in the busket".format(result)
+
+
+# Quiz: Fruit Basket - Task 3
+
+# You would like to count the number of fruits in your basket. 
+# In order to do this, you have the following dictionary and list of
+# fruits.  Use the dictionary and list to count the total number
+# of fruits and not_fruits.
+
+fruit_count, not_fruit_count = 0, 0
+basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+#Iterate through the dictionary
+for key, value in basket_items.items():
+
+    #if the key is in the list of fruits, add to fruit_count.
+    if key in fruits:
+        fruit_count = fruit_count + value
+
+    #if the key is not in the list, then add to the not_fruit_count
+    else:
+        not_fruit_count = not_fruit_count + value
+
+print("There are {} fruits and {} not fruits".format(fruit_count, not_fruit_count))
+
+# Quiz: Break the String
+#
+# Write a loop with a break statement to create a string, news_ticker, that
+# is exactly 140 characters long. You should create the news ticker by adding
+# headlines from the headlines list, inserting a space in between each headline.
+
+headlines = ["Local Bear Eaten by Man",
+             "Legislature Announces New Laws",
+             "Peasant Discovers Violence Inherent in System",
+             "Cat Rescues Fireman Stuck in Tree",
+             "Brave Knight Runs Away",
+             "Papperbok Review: Totally Triffic"]
+
+news_ticker = ""
+
+headlines = " ".join(headlines)
+
+for letter in headlines:
+    news_ticker = news_ticker + letter
+    if len(news_ticker) == 140:
+        break
+
+print(news_ticker)
+
+# Udacity solution
+
+headlines = ["Local Bear Eaten by Man",
+             "Legislature Announces New Laws",
+             "Peasant Discovers Violence Inherent in System",
+             "Cat Rescues Fireman Stuck in Tree",
+             "Brave Knight Runs Away",
+             "Papperbok Review: Totally Triffic"]
+
+news_ticker = ""
+for headline in headlines:
+    news_ticker += headline + " "
+    if len(news_ticker) >= 140:
+        news_ticker = news_ticker[:140]
+        break
+
+print(news_ticker)
+
+
+# Quiz 1: zip() and enumerate()
+#
+# Zip Coordinates
+
+
+x_coord = [23, 53, 2, -12, 95, 103, 14, -5]
+y_coord = [677, 233, 405, 433, 905, 376, 432, 445]
+z_coord = [4, 16, -6, -42, 3, -6, 23, -1]
+labels = ["F", "J", "A", "Q", "Y", "B", "W", "X"]
+
+points = []
+
+for num_x, num_y, num_z, letter in zip(x_coord, y_coord, z_coord, labels):
+    points.append("{}: {}, {}, {}".format(letter, num_x, num_y, num_z))
+
+print(points)
+
+
+# Udacity solution:
+x_coord = [23, 53, 2, -12, 95, 103, 14, -5]
+y_coord = [677, 233, 405, 433, 905, 376, 432, 445]
+z_coord = [4, 16, -6, -42, 3, -6, 23, -1]
+labels = ["F", "J", "A", "Q", "Y", "B", "W", "X"]
+
+points = []
+for point in zip(labels, x_coord, y_coord, z_coord):
+    points.append("{}: {}, {}, {}".format(*point))
+
+for point in points:
+    print(point)
+
+
+# Quiz 2: zip() and enumerate()
+#
+# Zip Lists to a Dictionary
+
+cast_names = ["Barney", "Robin", "Ted", "Lily", "Marshall"]
+cast_heights = [72, 68, 72, 66, 76]
+
+cast = dict(zip(cast_names, cast_heights)) 
+
+print(cast)
+
+
+# Quiz 3: unzip
+#
+# Unzip the cast tuple into two names and heights tuples.
+
+
+cast = (("Barney", 72), ("Robin", 68), ("Ted", 72), ("Lily", 66), ("Marshall", 76))
+
+# define names and heights here
+
+names, heights = zip(*cast)
+
+print(names)
+print(heights)
+
+
+# Quiz 4: zip() and enumerate()
+#
+# Quiz: Transpose with Zip
+# Use zip to transpose data from a 4-by-3 matrix to a 3-by-4 matrix
+
+data = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11))
+
+data_transpose = tuple(zip(*data))
+
+print(data_transpose)
+
+
+# Quiz 5: Quiz: Enumerate
+#
+# Use enumerate to modify the cast list so that each element contains the name
+# followed by the character's corresponding height. For example, the first
+# element of cast should change from "Barney Stinson" to "Barney Stinson 72".
+
+cast = ["Barney Stinson", "Robin Scherbatsky", "Ted Mosby", "Lily Aldrin", "Marshall Eriksen"]
+heights = [72, 68, 72, 66, 76]
+
+for index, height in enumerate(heights):
+    s = "{} {}".format(cast[index], height)
+    cast[index] = s
+
+print(cast)
+DICTIONARIES
+
+[ ]
+book_title =  ['great', 'expectations','the', 'adventures', 'of', 'sherlock','holmes','the','great','gasby','hamlet','adventures','of','huckleberry','fin']
+word_counter = {}
+for word in book_title:
+    if word not in word_counter:
+        word_counter[word] = 1
+    else:
+        word_counter[word] += 1
+print(word_counter)
+Iterating Through Dictionaries with For Loops: When you iterate through a dictionary using a for loop, doing it the normal way (for n in some_dict) will only give you access to the keys in the dictionary - which is what you'd want in some situations. In other cases, you'd want to iterate through both the keys and values in the dictionary. You do it this way:
+
+Double-click (or enter) to edit
+
+[ ]
+cast = {
+           "Jerry Seinfeld": "Jerry Seinfeld",
+           "Julia Louis-Dreyfus": "Elaine Benes",
+           "Jason Alexander": "George Costanza",
+           "Michael Richards": "Cosmo Kramer"
+       }
+#iterating the usual way to give only the values
+for key in cast:
+    print(key)
+
+#To iterate and give both keys and values
+for key, value in cast.items():
+    print("Actor: {}    Role: {}".format(key, value))
+
+
+Double-click (or enter) to edit
+
+[ ]
+result = 0
+basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+result = 0
+for key, value in basket_items.items():
+    if key in fruits:
+        result += value
+
+print(result)
+#Another Solution
+result = 0
+basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+for fruit in fruits:                       #Iterate each element in list
+    result += basket_items.get(fruit, 0)   #Add to result. #This is getting fruit from the first element
+
+print(result)
+
+23
+[ ]
+fruit_count, not_fruit_count = 0, 0
+basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+#Iterate through the dictionary
+for key, value in basket_items.items():
+#if the key is in the list of fruits, add to fruit_count.
+  if key in fruits:
+        fruit_count = fruit_count + value
+#if the key is not in the list, then add to the not_fruit_count
+  else:
+        not_fruit_count = not_fruit_count + value
+
+print("There are {} fruits and {} not fruits".format(fruit_count, not_fruit_count))
+print(fruit_count, not_fruit_count)
+There are 23 fruits and 11 not fruits
+23 11
+While Loops: For loops are an example of "definite iteration" meaning that the loop's body is run a predefined number of times. This differs from "indefinite iteration" which is when a loop repeats an unknown number of times and ends when some condition is met, which is what happens in a while loop. Here's an example of a while loop.
+
+Double-click (or enter) to edit
+
+[ ]
+card_deck = [4, 11, 8, 5, 13, 2, 8, 10]
+hand = []
+
+# adds the last element of the card_deck list to the hand list
+# until the values in hand add up to 17 or more
+while sum(hand)  < 17:
+    hand.append(card_deck.pop())
+print(sum(hand))
+print(hand)
+
